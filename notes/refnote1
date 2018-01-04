@@ -1,0 +1,7 @@
+Filter + Functions
+    extract sublist .collect
+    print sublist .forEach
+    count sublist .count
+    get findFirst Optional
+    get findAny Optional
+

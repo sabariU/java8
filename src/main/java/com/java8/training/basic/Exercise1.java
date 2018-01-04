@@ -1,6 +1,11 @@
 package com.java8.training.basic;
 
 import com.java8.training.basic.com.java8.training.model.Article;
+import static org.junit.Assert.*;
+
+import static org.hamcrest.core.AnyOf.*;
+import static org.hamcrest.core.Is.*;
+import org.junit.Test;
 
 import java.util.Arrays;
 import java.util.List;
@@ -32,12 +37,27 @@ public class Exercise1 {
 
         System.out.println("No of Java articles : " + count);
 
-        articles.stream().filter(article -> article.getTags().contains("java")).
+      //  articles.stream().filter(article -> article.getTags().contains("java")).
 
        // allJavaArticles.forEach(article -> System.out.println(article));
        // System.out.println(" Java Aritcle : " + javaArticles.get());
 
         //allJavaArticles.forEach(System.out::println);
+
+      //  articles.stream().filter(article -> article.getTags().contains("java")).findAny()
+    }
+
+
+    @Test
+    public void findAnyTest(){
+        List<String> list= Arrays.asList("A","B","C","D");
+
+        Optional<String > result = list.stream().findAny();
+
+        assertTrue(result.isPresent());
+        //assertThat(result.get(), anyOf(is("A"), is("B"), is("C") ,is("D")));
+       // assertThat(result.get(), anyOf( is("C") ,is("D")));
+
     }
 
     private static List<Article> loadArticles(){
